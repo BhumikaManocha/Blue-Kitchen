@@ -78,19 +78,32 @@ function formatSearchResults(jsonResults) {
 // error and success handling when the request calls back
 
 function performSearch(event) {
+  $('#field_blank').text('')
+
 
   // Variable to hold request
   var request;
 
   // Prevent default posting of form - put here to work in case of errors
-  event.preventDefault();
 
+  event.preventDefault();
   // Abort any pending request
   if (request) {
       request.abort();
   }
-  // setup some local variables
-  var $form = $(this);
+
+  var ingredients = $("#ingredients").val()
+  var contains = $("#contains").val()
+
+  if(ingredients.length <= 0 && contains.length <=0)
+  {
+    $('#field_blank').text('*Both the fields cannot be blank! Please fill atleast one field.')
+    return;
+  }
+  $("#results").text("");
+
+
+  // setup some local variables  var $form = $(this);
 
   // disable the inputs and buttons for the duration of the request.
   setFormDisabledProps(true);
@@ -103,7 +116,7 @@ function performSearch(event) {
   request = $.ajax({
       url: "https://cors-anywhere.herokuapp.com/" + "http://www.recipepuppy.com/api/",
       type: "GET",
-      data: { i: $("#ingredients").val(), q: $("#contains").val()}
+      data: { i: ingredients, q: contains}
   });
 
   // Callback handler for success

@@ -23,25 +23,26 @@
 
 <h1 class='section-heading'>Blue Kitchen!!!</h1>
 <h2 class='section-subheading'>Recipe Search by Ingredients</h2>
-<p><code class="copyright-text">Powered by <a href="http://www.recipepuppy.com/about/api/" target= "_blank">🐶 Recipe Puppy</a></code></p>
+<!-- <p><code class="copyright-text">Powered by <a href="http://www.recipepuppy.com/about/api/" target= "_blank">🐶 Recipe Puppy</a></code></p> -->
 
 <div class="section-description">
 
   <p class="section-subheading">
     <form id="query-form">
       <div>
-        <label for="ingredients">Ingredients (commas separated):</label><input class="textfield" id="ingredients" type="text" name="ingredients" placeholder="e.g. beef, potato (optional)" onChange="sanitizeInputs()" />
+        <label for="ingredients">Ingredients (commas separated):</label><input class="textfield" id="ingredients" type="text" name="ingredients" placeholder="e.g. beef, potato (optional)" onChange="sanitizeInputs()" /> <br> <br>
       </div>
       <div>
-        <label for="contains">Dish Name Contains (no commas):</label><input class="textfield" id="contains" type="text" name="contains" placeholder="e.g. spaghetti (optional)" onChange="sanitizeInputs()" /></div>
+        <label for="contains">Dish Name Contains (no commas):</label><input class="textfield" id="contains" type="text" name="contains" placeholder="e.g. spaghetti (optional)" onChange="sanitizeInputs()" /></div> <br>
       <div class="button">
         <br />
-        <input class="button" type="button" value="Reset" id="resetButton" onClick="this.form.reset();resetResults()" />
-        <input class="button" type="submit" value="Search" id="searchButton" />
+        <input class="button btn btn-light" type="button" value="Reset" id="resetButton" onClick="this.form.reset();resetResults()" />
+        <input class="button btn btn-light" type="submit" value="Search" id="searchButton" />
       </div>
     </form>
   </p>
 
+  <p id="field_blank"><b></b></p>
 <div class="section-subheading" id="search-results-heading"></div>
 <div class="results-div" id="results"></div>
 
